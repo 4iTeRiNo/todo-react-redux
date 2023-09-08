@@ -1,35 +1,49 @@
 .App {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
-  max-width: 300px;
   width: 100%;
-  margin: 0 auto;
+  font-size: 1.4rem;
 }
 
 .input-wrapper {
   width: 100%;
   display: flex;
+  justify-content: center;
   column-gap: 20px;
 }
 
 ul {
+  padding: 0;
   list-style: none;
 }
 
 li {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 20px;
+  cursor: pointer;
+}
+
+li:hover {
+  background-color: aliceblue;
+}
+
+.set-width {
+  width: 400px;
 }
 
 .delete {
+  display: block;
+  justify-content: end;
+
+  text-align: right;
   color: red;
-  cursor: pointer
+  cursor: pointer;
+  right: 0;
+  align-items: end;
 }
 
-input:checked + span {
+input:checked+span {
   text-decoration: line-through;
 }
