@@ -1,8 +1,14 @@
-import { useDispatch } from "react-redux"
+import { useAppDispatch } from "../hooks"
 import { deleteTodos, toggleStatus } from "../store/todoSlice"
 
-const TodoItem = ({ id, title, completed }) => {
-  const dispatch = useDispatch()
+interface TodoItemProps {
+  id: string;
+  title: string;
+  completed: boolean;
+}
+
+const TodoItem: React.FC<TodoItemProps> = ({ id, title, completed }) => {
+  const dispatch = useAppDispatch()
   return (
     <li>
       <input

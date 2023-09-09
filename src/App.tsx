@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useAppDispatch, useAppSelector } from './hooks'
 
 
 import './App.css'
@@ -12,9 +12,9 @@ function App() {
 
   const [text, setText] = useState('')
 
-  const { status, error } = useSelector(state => state.todos)
+  const { loading, error } = useAppSelector(state => state.todos)
 
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const addTask = () => {
     if (text.trim().length) {
       dispatch(addNewTodo(text));
@@ -30,7 +30,7 @@ function App() {
     <div className='App'>
       <NewFomInput text={text} handleInput={setText} handelSubmit={addTask} />
 
-      {status === 'loading' && <h2>Loading...</h2>}
+      {loading  && <h2>Loading...</h2>}
       {error && <h2>An error occured:{error}</h2>}
 
       <TodoList />
